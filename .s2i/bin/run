@@ -21,7 +21,7 @@ PluginsInstalled[] = \"${plugin}\""
 done;
 export PLUGINS_INSTALLED_CONFIG
 
-envsubst < config/config.ini.template > config/config.ini.php 
+envsubst < /tmp/src/config.ini.php > config/config.ini.php 
 
 #Include the images run script
 source ${STI_SCRIPTS_PATH}/run
