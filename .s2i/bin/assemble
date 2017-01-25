@@ -8,8 +8,6 @@ echo "---> Installing Piwik LATEST source..."
 install_version=$(curl https://builds.piwik.org/LATEST)
 curl -O https://builds.piwik.org/piwik-${install_version}.tar.gz
 
-tar -xzf piwik-${install_version}.tar.gz
-
 tar --strip-components=1 -xzf piwik-${install_version}.tar.gz
 
 mv /tmp/src/config.ini.php config/config.ini.template 
