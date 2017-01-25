@@ -14,3 +14,6 @@ tar --strip-components=1 -xzf piwik-${install_version}.tar.gz
 
 mv /tmp/src/config.ini.php config/config.ini.template 
 rm piwik-${install_version}.tar.gz
+
+# Fix source directory permissions
+fix-permissions ./
