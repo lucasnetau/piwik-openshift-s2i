@@ -23,5 +23,10 @@ export PLUGINS_INSTALLED_CONFIG
 
 envsubst < /tmp/src/config.ini.php > config/config.ini.php 
 
+# GeoCityLite
+curl -O http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz
+gunzip GeoLiteCity.dat.gz
+mv GeoLiteCity.dat misc/GeoIPCity.dat
+
 #Include the images run script
 source ${STI_SCRIPTS_PATH}/run
