@@ -1,0 +1,24 @@
+#!/bin/bash
+
+TRUSTED_HOSTS_CONFIG=""
+for trust in ${PIWIK_TRUSTED_HOSTS}; do 
+  TRUSTED_HOSTS_CONFIG="${TRUSTED_HOSTS_CONFIG}
+trusted_hosts[] = \"${trust}\""
+done;
+
+PLUGINS_CONFIG=""
+for plugin in ${PIWIK_PLUGINS}; do
+  PLUGINS_CONFIG="${PLUGINS_CONFIG}
+Plugins[] = \"${plugin}\""
+done;
+
+PLUGINS_INSTALLED_CONFIG=""
+for plugin in ${PIWIK_INSTALLED_PLUGINS}; do
+  PLUGINS_INSTALLED_CONFIG="${PLUGINS_INSTALLED_CONFIG}
+PluginsInstalled[] = \"${plugin}\""
+done;
+
+envsubst < config/config.ini.template > config/config.ini.php 
+
+#Include the images run script
+source ${STI_SCRIPTS_PATH}/run
