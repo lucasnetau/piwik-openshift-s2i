@@ -1,12 +1,12 @@
 ; <?php exit; ?> DO NOT REMOVE THIS LINE
 ; file automatically generated or modified by Piwik; you can manually override the default values in global.ini.php by redefining them in this file.
 [database]
-host = "${MYSQL_SERVICE_HOST}"
-port = "${MYSQL_SERVICE_PORT}"
-username = "${MYSQL_USER}"
-password = "${MYSQL_PASSWORD}"
-dbname = "${MYSQL_DATABASE}"
-tables_prefix = "${PIWIK_MYSQL_PREFIX}"
+host = "${MARIADB_SERVICE_HOST}"
+port = "${MARIADB_SERVICE_PORT}"
+username = "${DATABASE_USER}"
+password = "${DATABASE_PASSWORD}"
+dbname = "${DATABASE_NAME}"
+tables_prefix = "${PIWIK_TABLE_PREFIX}"
 adapter = PDO\MYSQL
 type = InnoDB
 schema = Mysql
