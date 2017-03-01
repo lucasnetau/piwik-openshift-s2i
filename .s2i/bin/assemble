@@ -13,7 +13,7 @@ tar --strip-components=1 -xzf piwik-${install_version}.tar.gz
 rm piwik-${install_version}.tar.gz
 
 echo php_flag opcache.validate_timestamps 0 >> .htaccess
-cat << << EOF >> .htaccess
+cat << 'EOF' >> .htaccess
 # turn on gzip compression and caching for piwik.js
 <IfModule mod_expires.c>
   # Enable expirations.
