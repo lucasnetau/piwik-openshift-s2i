@@ -14,6 +14,7 @@ schema = Mysql
 [General]
 assume_secure_protocol = 1
 enable_trusted_host_check = 0
+session_save_handler = dbtable
 proxy_client_headers[] = "HTTP_X_FORWARDED_FOR"
 proxy_host_headers[] = "HTTP_X_FORWARDED_HOST"
 salt = "${PIWIK_SALT}"
