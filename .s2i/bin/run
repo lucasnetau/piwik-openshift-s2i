@@ -28,5 +28,8 @@ curl -O http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz
 gunzip GeoLiteCity.dat.gz
 mv GeoLiteCity.dat misc/GeoIPCity.dat
 
+# Exclude generated files from opcache
+echo "${HOME}/tmp/cache/tracker" >> /etc/opt/rh/rh-php70/php.d/opcache-default.blacklist 
+
 #Include the images run script
 source ${STI_SCRIPTS_PATH}/run
