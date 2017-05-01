@@ -1,3 +1,0 @@
-#!/bin/bash
-envsubst < /opt/app-root/config/config.template.php > config/config.ini.php
-php ~/console core:archive --url=${URL}
