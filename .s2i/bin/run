@@ -1,27 +1,13 @@
 #!/bin/bash
 
-TRUSTED_HOSTS_CONFIG=""
-for trust in ${PIWIK_TRUSTED_HOSTS}; do 
-  TRUSTED_HOSTS_CONFIG="${TRUSTED_HOSTS_CONFIG}
-trusted_hosts[] = \"${trust}\""
-done;
-export TRUSTED_HOSTS_CONFIG
+#TRUSTED_HOSTS_CONFIG=""
+#for trust in ${PIWIK_TRUSTED_HOSTS}; do 
+#  TRUSTED_HOSTS_CONFIG="${TRUSTED_HOSTS_CONFIG}
+#trusted_hosts[] = \"${trust}\""
+#done;
+#export TRUSTED_HOSTS_CONFIG
 
-PLUGINS_CONFIG=""
-for plugin in ${PIWIK_PLUGINS}; do
-  PLUGINS_CONFIG="${PLUGINS_CONFIG}
-Plugins[] = \"${plugin}\""
-done;
-export PLUGINS_CONFIG
-
-PLUGINS_INSTALLED_CONFIG=""
-for plugin in ${PIWIK_INSTALLED_PLUGINS}; do
-  PLUGINS_INSTALLED_CONFIG="${PLUGINS_INSTALLED_CONFIG}
-PluginsInstalled[] = \"${plugin}\""
-done;
-export PLUGINS_INSTALLED_CONFIG
-
-envsubst < /tmp/src/config.ini.php > config/config.ini.php 
+envsubst < /opt/app-root/config/config.template.php > config/config.ini.php 
 
 # GeoCityLite
 curl -O http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz
