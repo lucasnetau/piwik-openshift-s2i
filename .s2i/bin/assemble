@@ -3,9 +3,9 @@
 set -e
 
 shopt -s dotglob
-echo "---> Installing Piwik LATEST source..."
 
 install_version=$(curl https://builds.piwik.org/LATEST)
+echo "---> Installing Piwik ${install_version} source..."
 curl -O https://builds.piwik.org/piwik-${install_version}.tar.gz
 
 tar --strip-components=1 -xzf piwik-${install_version}.tar.gz
