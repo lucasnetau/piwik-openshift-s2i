@@ -26,5 +26,19 @@ cat << 'EOF' >> .htaccess
 </IfModule>
 EOF
 
+# Let's Encrypt handler
+cat << 'EOF' >> le.php
+<?php
+
+header("Content-Type: text/plain");
+$challenge = basename($_SERVER['REQUEST_URI']);
+echo $challenge . "." . getenv('LE_ACCOUNT_THUMBPRINT');
+EOF
+
+cat << 'EOF' >> .htaccess
+RewriteEngine On
+RewriteRule ^\.well-known/acme-challenge le.php
+EOF
+
 # Fix source directory permissions
 fix-permissions ./
