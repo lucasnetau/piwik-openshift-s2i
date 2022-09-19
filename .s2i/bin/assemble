@@ -40,9 +40,9 @@ RewriteEngine On
 RewriteRule ^\.well-known/acme-challenge le.php
 EOF
 
-# GeoCityLite, Install a version in the repo incase cloudflare blocks the container downloading during run or update
-gunzip /tmp/src/GeoLiteCity.dat.gz
-mv /tmp/src/GeoLiteCity.dat ./misc/GeoIPCity.dat
+# DBIP, Install a version in the repo incase cloudflare blocks the container downloading during run or update
+gunzip /tmp/src/dbip-city-lite-2022-09.mmdb.gz
+mv /tmp/src/dbip-city-lite-2022-09.mmdb ./misc/DBIP-City.mmdb
 
 # Fix source directory permissions
 fix-permissions ./

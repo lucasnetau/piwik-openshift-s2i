@@ -9,10 +9,12 @@
 
 envsubst < /opt/app-root/config/config.template.php > config/config.ini.php 
 
-# GeoCityLite
-curl -O http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz
-gunzip GeoLiteCity.dat.gz
-mv GeoLiteCity.dat misc/GeoIPCity.dat
+# DBIP update
+CURRENTDATE=`date +%Y-%m`
+CURRENTURL="https://download.db-ip.com/free/dbip-city-lite-${CURRENTDATE}.mmdb.gz"
+curl -O "${CURRENTURL}"
+gunzip "dbip-city-lite-${CURRENTDATE}.mmdb.gz"
+mv "dbip-city-lite-${CURRENTDATE}.mmdb" misc/DBIP-City.mmdb
 
 # Exclude generated files from opcache
 echo "${HOME}/tmp/cache/tracker" >> /etc/opt/rh/rh-php70/php.d/opcache-default.blacklist 
